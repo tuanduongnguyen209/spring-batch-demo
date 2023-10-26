@@ -47,4 +47,8 @@ public class StudentService {
                 .toJobParameters();
         jobLauncher.run(job, jobParameters);
     }
+
+    public int countStudent() {
+        return (int) studentRepository.count();
+    }
 }

@@ -47,11 +47,13 @@ input:focus {
 label {
     font-size: 1.2em;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .label {
     font-size: 1.2em;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 

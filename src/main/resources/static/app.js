@@ -5,10 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteAllStudentsButton = document.getElementById("deleteAllStudentsButton");
     const startJobButton = document.getElementById("startJobButton");
     const chunkSizeInput = document.getElementById("chunkSize");
+    const studentCountText = document.getElementById("studentCountText");
 
     generateStudentsButton.addEventListener("click", onGenerateStudents);
     deleteAllStudentsButton.addEventListener("click", onDeleteAllStudents);
     startJobButton.addEventListener("click", onStartJob);
+
+    setInterval(updateJobStatus, 1000);
+
+    updateStudentCount();
 
     function onGenerateStudents(e) {
         e.preventDefault();
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = "block";
         axios.post(url).then(() => {
             loader.style.display = "none";
+            updateStudentCount();
         })
     }
 
@@ -29,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         axios.delete(url).then(() => {
             console.log("Deleted all students");
             loader.style.display = "none";
+            updateStudentCount();
         })
     }
 
@@ -41,6 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
         axios.post(url).then(() => {
             console.log("Job started");
             loader.style.display = "none";
+        })
+    }
+
+    function updateStudentCount() {
+        const url = "http://localhost:8080/students/count";
+        axios.get(url).then((response) => {
+            studentCountText.innerText = response.data;
+        })
+    }
+
+    function updateJobStatus() {
+        const url = "http://localhost:8080/runningJobs";
+        axios.get(url).then((response) => {
+            console.log(response.data);
         })
     }
 });

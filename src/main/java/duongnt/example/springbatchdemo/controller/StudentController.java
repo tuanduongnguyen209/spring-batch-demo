@@ -1,10 +1,7 @@
 package duongnt.example.springbatchdemo.controller;
 
 import duongnt.example.springbatchdemo.service.StudentService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StudentController {
@@ -27,5 +24,10 @@ public class StudentController {
     @PostMapping("/students/calculateAvgScore")
     public void startCalculateAvgScore(@RequestParam int chunkSize) throws Exception {
         studentService.startCalculateAvgScore(chunkSize);
+    }
+
+    @GetMapping("/students/count")
+    public int countStudent() {
+        return studentService.countStudent();
     }
 }
