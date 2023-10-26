@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="/app.css">
+
+</head>
+<body>
+
+<div>
+    <div class="loading" style="display: none" id="loader"></div>
+    <label for="studentCount">Number of students:</label><br>
+    <input value="10" type="number" id="studentCount" name="studentCount"><br>
+    <button id="generateStudentsButton" type="submit">Generate Students</button>
+
+    <div>
+        <button class="red" id="deleteAllStudentsButton">Delete All Students</button>
+    </div>
+
+    <div>
+        <label for="chunkSize">Chunk size:</label><br>
+        <input value="2" type="number" id="chunkSize" name="chunkSize"><br>
+        <button id="startJobButton">Start calculating average score</button>
+    </div>
+
+    <div>
+        <div class="label">Number of students:<span id="numberOfStudent"></span></div>
+        <div class="label">
+            Running Job instances:
+            <div id="runningJobInstance"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
