@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteAllStudentsButton.addEventListener("click", onDeleteAllStudents);
     startJobButton.addEventListener("click", onStartJob);
 
-    setInterval(updateJobStatus, 1000);
+    // setInterval(updateJobStatus, 1000);
 
     updateStudentCount();
 
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    function updateJobStatus() {
-        const url = "http://localhost:8080/runningJobs";
-        axios.get(url).then((response) => {
-            console.log(response.data);
-        })
-    }
+    // function updateJobStatus() {
+    //     const url = "http://localhost:8080/runningJobs";
+    //     axios.get(url).then((response) => {
+    //         console.log(response.data);
+    //     })
+    // }
 });
